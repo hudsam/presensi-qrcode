@@ -1,4 +1,4 @@
-.log/*
-.vendors/js/presensi/*
-.vendors/js/instascan.min.js
-.vendors/img/*
+/log/*
+/vendors/js/presensi/*
+/vendors/js/instascan.min.js
+/vendors/img/*
