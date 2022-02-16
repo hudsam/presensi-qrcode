@@ -36,9 +36,9 @@ if (isset($parameter))
         $fileName = './log/presensi-izin.log';
         $waktu = date('Y-m-d H:i:s');
         $nim = $_POST['nim'];
-        if (isset($_POST['jenis']))
+        if (isset($_POST['tipe']))
         {
-            if ($_POST['jenis'] === 'keluar')
+            if ($_POST['tipe'] === 'keluar')
             {
                 $keperluan = $_POST['keperluan'];
 
@@ -47,7 +47,7 @@ if (isset($parameter))
                 fwrite($buka, $konten);
                 $result = json_encode(array('status' => 'keluar'));
             }
-            elseif ($_POST['jenis'] === 'masuk')
+            elseif ($_POST['tipe'] === 'masuk')
             {
                 // Insert line with new data
                 $handle = fopen($fileName, 'r');
