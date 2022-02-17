@@ -19,6 +19,38 @@ $(document).ready( function () {
     }
 });
 
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 5000,
+    width: '30rem',
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+    }
+});
+
+let jenis = '';
+function unduhPerekapan(jenis) {
+    Swal.fire({
+        icon: 'question',
+        text: 'Apakah Anda ingin mengunduh data rekap ' + jenis + '?',
+        confirmButtonText: 'Iya',
+        showCancelButton: true,
+        cancelButtonText: 'Tidak',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location = './unduh.php?jenis=' + jenis;
+            Toast.fire({
+                icon: 'success',
+                text: 'Rekap ' + jenis + ' berhasil diunduh.',
+            });
+        }
+    });
+}
+
 // DisableD Right Click
 var message = '';
 function clickIE() {
