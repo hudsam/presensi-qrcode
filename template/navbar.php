@@ -22,7 +22,11 @@
                 </li>
             </ul>
             <ul class="navbar-nav flex-row flex-wrap ms-md-auto <?php echo (basename($_SERVER['SCRIPT_NAME']) === 'menu.php' ? 'd-none' : null) ; ?>">
-                <li class="nav-item col-6 col-md-auto">
+                <?php $menu = (basename($_SERVER['SCRIPT_NAME']) === 'rekap.php') ? 'd-block' : 'd-none'; ?>
+                <li class="nav-item col-md-auto <?php echo $menu; ?>">
+                    <a class="nav-link p-2 text-white" href="#" onclick="unduhPerekapan('<?php echo $_GET['jenis']; ?>');"><i class="bi bi-download"></i> Unduh Perekapan</a>
+                </li>
+                <li class="nav-item col-md-auto">
                     <?php
                         $menu = (basename($_SERVER['SCRIPT_NAME']) === 'presensi.php') ? 'Presensi Manual' : 'Isi Presensi';
                         $redirect = null;
@@ -36,7 +40,7 @@
                     ?>
                     <a class="nav-link p-2 text-white" <?php echo $redirect; ?>><i class="bi bi-pencil-square"></i> <?php echo $menu; ?></a>
                 </li>
-                <li class="nav-item col-6 col-md-auto">
+                <li class="nav-item col-md-auto">
                     <a class="nav-link p-2 text-white" href="rekap.php?jenis=<?php echo (isset($_GET['jenis'])) ? $_GET['jenis'] : null; ?>"><i class="bi bi-card-checklist"></i> Rekap Presensi</a>
                 </li>
             </ul>
